@@ -1,0 +1,53 @@
+backend:
+  name: github
+  repo: YOUR-USERNAME/wiki-starter   # ← 본인 리포로 변경
+  branch: main
+  base_url: https://decap-oauth.netlify.app  # 무료 OAuth 프록시 (또는 자체 배포)
+
+media_folder: "static/files"
+public_folder: "/files"
+
+collections:
+  # ─── 문서 (Docs) ───
+  - name: "docs"
+    label: "문서"
+    folder: "content/docs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "날짜", name: "date", widget: "datetime" }
+      - { label: "요약", name: "summary", widget: "string", required: false }
+      - { label: "순서", name: "weight", widget: "number", required: false }
+      - { label: "본문", name: "body", widget: "markdown" }
+      - label: "첨부파일"
+        name: "attachments"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "파일명", name: "name", widget: "string" }
+          - { label: "파일", name: "file", widget: "file" }
+
+  # ─── 공지/블로그 ───
+  - name: "blog"
+    label: "공지사항"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "제목", name: "title", widget: "string" }
+      - { label: "날짜", name: "date", widget: "datetime" }
+      - { label: "요약", name: "summary", widget: "string", required: false }
+      - { label: "본문", name: "body", widget: "markdown" }
+
+  # ─── 자료실 (Downloads) ───
+  - name: "downloads"
+    label: "자료실"
+    folder: "content/downloads"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "파일 제목", name: "title", widget: "string" }
+      - { label: "날짜", name: "date", widget: "datetime" }
+      - { label: "설명", name: "summary", widget: "string" }
+      - { label: "파일 업로드", name: "file", widget: "file" }

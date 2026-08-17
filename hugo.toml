@@ -1,0 +1,32 @@
+baseURL = "https://YOUR-USERNAME.github.io/wiki-starter/"
+languageCode = "ko"
+title = "Knowledge Base"
+theme = ""
+
+# GitHub Actions가 public/ 폴더를 자동 배포
+
+[params]
+  description = "고객용 지식 베이스 & 자료실"
+  author = "Admin"
+
+[menu]
+  [[menu.main]]
+    name = "문서"
+    url = "/docs/"
+    weight = 1
+  [[menu.main]]
+    name = "공지"
+    url = "/blog/"
+    weight = 2
+  [[menu.main]]
+    name = "자료실"
+    url = "/downloads/"
+    weight = 3
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]

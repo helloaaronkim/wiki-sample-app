@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="hero">
+  <h1>{{ .Site.Title }}</h1>
+  <p>{{ .Site.Params.description }}</p>
+</div>
+
+<div class="home-grid">
+  <section>
+    <h2>최근 문서</h2>
+    <ul>
+      {{ range first 5 (where .Site.RegularPages "Section" "docs") }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
+
+  <section>
+    <h2>공지사항</h2>
+    <ul>
+      {{ range first 5 (where .Site.RegularPages "Section" "blog") }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a> <span class="date">{{ .Date.Format "01/02" }}</span></li>
+      {{ end }}
+    </ul>
+  </section>
+
+  <section>
+    <h2>최근 자료</h2>
+    <ul>
+      {{ range first 5 (where .Site.RegularPages "Section" "downloads") }}
+      <li><a href="{{ .Params.file | absURL }}" download>{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </section>
+</div>
+{{ end }}

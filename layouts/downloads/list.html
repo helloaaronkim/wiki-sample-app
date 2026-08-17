@@ -1,0 +1,25 @@
+{{ define "main" }}
+<h1>자료실</h1>
+<p>아래 파일을 클릭하면 다운로드됩니다.</p>
+
+<table class="downloads-table">
+  <thead>
+    <tr>
+      <th>파일명</th>
+      <th>설명</th>
+      <th>날짜</th>
+      <th>다운로드</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range .Pages.ByDate.Reverse }}
+    <tr>
+      <td>{{ .Title }}</td>
+      <td>{{ .Params.summary }}</td>
+      <td>{{ .Date.Format "2006-01-02" }}</td>
+      <td><a href="{{ .Params.file | absURL }}" download class="btn-download">다운로드</a></td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>
+{{ end }}
