@@ -1,7 +1,6 @@
-baseURL = "https://YOUR-USERNAME.github.io/wiki-starter/"
-languageCode = "ko"
+baseURL = "https://helloaaronkim.github.io/wiki-sample-app/"
+defaultContentLanguage = "ko"
 title = "Knowledge Base"
-theme = ""
 
 # GitHub Actions가 public/ 폴더를 자동 배포
 
