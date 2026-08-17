@@ -1,8 +1,9 @@
 backend:
   name: github
-  repo: YOUR-USERNAME/wiki-starter   # ← 본인 리포로 변경
+  repo: helloaaronkim/wiki-sample-app   # ← 본인 리포로 변경
   branch: main
-  base_url: https://decap-oauth.netlify.app  # 무료 OAuth 프록시 (또는 자체 배포)
+  auth_type: pkce                        # OAuth 프록시 서버 불필요
+  app_id: Ov23lib5QHTv2UhR4ZMb
 
 media_folder: "static/files"
 public_folder: "/files"
